@@ -26,13 +26,13 @@ const App = () => {
   };
 
   const fetchData = async () => {
-    if (query.trim()) {
-      setLoading(true);
+    if (query.trim()) {  // Trim method is used to remove any extra whitespaces (spaces, tabs & newlines) 
+      setLoading(true);  // From the begining and the end of a string
       setError(false);
       try {
         const response = await axios.get(
-          `https://openlibrary.org/search.json?q=${encodeURIComponent(
-            query.trim()
+          `https://openlibrary.org/search.json?q=${encodeURIComponent(  // function used to encode special characters 
+            query.trim()                                                // in a URL to insure they are correctly interpretted by the browser and the server.
           )}`
         );
         setData(response.data.docs);
@@ -49,7 +49,7 @@ const App = () => {
   return (
     <div>
       <Navigation />
-      <Routes>
+      <Routes> 
         <Route
           path="/"
           element={
@@ -80,3 +80,10 @@ const App = () => {
 };
 
 export default App;
+
+// Routing: Used to control which component is shown on the screen
+// based on the url the user is visiting. Helps to create a single page applicataion(SPA) .
+// where the page wont reload completely when you navigate between different parts of the website. 
+// instead it shows a different content dynamically based on the current url.
+// Routes: This is a container that holds all the possible routes (paths) of the application.
+// Route: Each route defines a path and the component that should be rendered when that path is visited.

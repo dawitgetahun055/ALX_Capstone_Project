@@ -4,8 +4,8 @@ import { useParams } from "react-router-dom";
 import bookData from "./books.json";
 
 const BookDescription = ({ data }) => {
-  const { id } = useParams();
-  const [bookItem, setBookItem] = useState(null);
+  const { id } = useParams();                      // Hook that allows to access dynamic parameters from 
+  const [bookItem, setBookItem] = useState(null);  // the current url. 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
